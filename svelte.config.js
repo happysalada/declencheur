@@ -1,6 +1,8 @@
 import { mdsvex } from 'mdsvex'
 import sveltePreprocess from 'svelte-preprocess'
 import adapter from '@sveltejs/adapter-static'
+import { resolve } from "path"
+
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
   extensions: ['.svelte', '.svx', '.md'],
@@ -8,14 +10,14 @@ const config = {
   // for more information about preprocessors
   preprocess: [
     sveltePreprocess({
-      postcss: true,
+      postcss: true
     }),
     mdsvex({
       extensions: ['.svx', '.md'],
       smartypants: {
-        dashes: 'oldschool',
-      },
-    }),
+        dashes: 'oldschool'
+      }
+    })
   ],
   kit: {
     // By default, `npm run build` will create a standard Node app.
@@ -25,7 +27,14 @@ const config = {
 
     // hydrate the <div id="svelte"> element in src/app.html
     target: '#svelte',
-  },
+    vite: {
+      resolve: {
+         alias: {
+           $data: resolve('./src/data'),
+         }
+      }
+    }
+  }
 }
 
 export default config

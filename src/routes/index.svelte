@@ -1,3 +1,7 @@
+<script lang="ts">
+  import menus from '$data/menus.json'
+</script>
+
 <svelte:head>
   <title>Declencheur</title>
 </svelte:head>
@@ -33,13 +37,9 @@
             </div>
           </div>
           <div class="hidden space-x-10 md:flex md:ml-10">
-            <a href="#" class="font-medium text-white hover:text-gray-300">Product</a>
-
-            <a href="#" class="font-medium text-white hover:text-gray-300">Features</a>
-
-            <a href="#" class="font-medium text-white hover:text-gray-300">Marketplace</a>
-
-            <a href="#" class="font-medium text-white hover:text-gray-300">Company</a>
+            {#each menus as {name, href}}
+              <a href={href} class="font-medium text-white hover:text-gray-300">{name}</a>
+            {/each}
           </div>
         </div>
         <div class="hidden md:flex">
@@ -76,13 +76,9 @@
             </div>
           </div>
           <div class="px-2 pt-2 pb-3 space-y-1">
-            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Product</a>
-
-            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Features</a>
-
-            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Marketplace</a>
-
-            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Company</a>
+            {#each menus as {name, href}}
+              <a href={href} class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">{name}</a>
+            {/each}
           </div>
           <a href="#" class="block w-full px-5 py-3 text-center font-medium text-indigo-600 bg-gray-50 hover:bg-gray-100">
             Log in

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import projects from '../data/projects.json'
+  import menus from '$data/menus.json'
   const categories = [
     {name: 'Nouvelles', icon: 'M6 5c7.18 0 13 5.82 13 13M6 11a7 7 0 017 7m-6 0a1 1 0 11-2 0 1 1 0 012 0z'},
     {name: 'Accelerateur et incubateurs', icon: 'M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4'},
@@ -134,14 +134,9 @@
         </div>
       </div>
       <div class="hidden md:ml-10 md:pr-4 md:block md:space-x-8 w-full">
-        <a href="#" class="font-medium text-gray-500 hover:text-gray-900">Resource</a>
-  
-        <a href="#" class="font-medium text-gray-500 hover:text-gray-900">A propos</a>
-  
-        <a href="#" class="font-medium text-gray-500 hover:text-gray-900">Partenaires</a>
-  
-        <a href="#" class="font-medium text-gray-500 hover:text-gray-900">Blog</a>
-  
+        {#each menus as {name, href}}
+          <a href={href} class="font-medium text-gray-500 hover:text-gray-900">{name}</a>
+        {/each}
         <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">Demander un plan</a>
       </div>
     </nav>
