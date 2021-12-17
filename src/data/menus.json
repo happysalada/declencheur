@@ -1,6 +1,6 @@
 [
   { "name": "Resources", "href": "/resources" },
-  { "name": "A propos", "href": "/about" },
+  { "name": "A propos", "href": "#" },
   { "name": "Partenaires", "href": "/partenaires" },
-  { "name": "Blog", "href": "/blog" }
+  { "name": "Blog", "href": "#" }
 ]
